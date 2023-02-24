@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login-sign page</title>
+    <!-- <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js"></script> -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script> -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="flex justify-center items-center bg-cover" style="background-image: url(bg-image/bg-img.jpg);">
+    <div class="flex flex-col bg-black opacity-70 p-10 my-36 z-0 transition-all" class="login" id="login">
+        <input type="email" class="text bg-transparent text-white border-b-[1px] border-[#16c2bf] my-5 py-2 px-2"
+        placeholder="Email" id="email">
+        <input type="password" class="text bg-transparent text-white border-b-[1px] border-[#16c2bf] my-5 py-2 px-2"
+            placeholder="Password" id="password">
+        <div class="flex items-center gap-10 my-6">
+            <div class="flex">
+                <input id="default-checkbox" type="checkbox" value=""
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 cursor-pointer">
+                <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Remember
+                    me</label>
+            </div>
+            <div>
+                <p class="dark:text-gray-300 text-sm cursor-pointer hover:underline">forgotten password</p>
+            </div>
+        </div>
+        <button class="border border-teal-300 dark:text-gray-300 px-10 py-2 hover:bg-teal-400 my-5" id="login-btn">log
+            in</button>
+        <p class="dark:text-gray-300 text-center">or</p>
+        <button class="border border-teal-300 dark:text-gray-300 px-10 py-2 hover:bg-teal-400 my-5"
+            id="sign-up-btn">Sign
+            up</button>
+    </div>
+    <div class="flex flex-col bg-black opacity-70 p-10 my-36 sm:w-[35%] w-fit lg:w-[28%] xl:w-[30%] z-10 absolute hidden"
+        id="sign-up">
+        <button class="text-4xl flex justify-start text-white mt-0 pt-0" id="back-btn">&larr;</button>
+        <input type="text" class="text bg-transparent text-white border-b-[1px] border-[#16c2bf] my-3 py-2 px-2"
+            placeholder="First Name" id="first-name">
+        <input type="text" class="text bg-transparent text-white border-b-[1px] border-[#16c2bf] my-3 py-2 px-2"
+            placeholder="Last Name" id="last-name">
+        <input type="email" class="text bg-transparent text-white border-b-[1px] border-[#16c2bf] my-5 py-2 px-2"
+            placeholder="Email" id="email">
+        <input type="password" class="text bg-transparent text-white border-b-[1px] border-[#16c2bf] my-5 py-2 px-2"
+            placeholder="Password" id="password">
+        <div class="flex justify-between mx-4 my-6">
+            <div class="flex" id="gender">
+                <input id="default-radio-1" type="radio" value="" name="default-radio"
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 cursor-pointer">
+                <label for="default-radio-1"
+                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Male</label>
+            </div>
+            <div class="flex">
+                <input checked id="default-radio-2" type="radio" value="" name="default-radio"
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 cursor-pointer">
+                <label for="default-radio-2"
+                    class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Female</label>
+            </div>
+        </div>
+        <button class="border border-teal-300 dark:text-gray-300 px-10 py-2 hover:bg-teal-400 my-5" id="submit-btn">Sign
+            up</button>
+    </div>
+
+
+    <script type="module" src="script.js"></script>
+
+    <!-- <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
+        // import { getAuth, createUserWithEmailAndPassword } from "'https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js'";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyCVhfrwFnym7scB4UDrfcL20_D68b8xyZs",
+            authDomain: "login---sign-up-dbf7a.firebaseapp.com",
+            databaseURL: "https://login---sign-up-dbf7a-default-rtdb.firebaseio.com",
+            projectId: "login---sign-up-dbf7a",
+            storageBucket: "login---sign-up-dbf7a.appspot.com",
+            messagingSenderId: "1047678109218",
+            appId: "1:1047678109218:web:9300f6607bcb2ada9bec7b",
+            measurementId: "G-0YPKP3FEL1"
+        };
+
+
+
+        // // firebase.initializeApp(firebaseConfig)
+
+        // // Initialize Firebase
+        // const app = initializeApp(firebaseConfig);
+        // const analytics = getAnalytics(app);
+        // // const auth = app.auth()
+        // // firebase.initializeApp(firebaseConfig);
+        // // firebase.analytics();
+
+        // const auth = getAuth();
+        // createUserWithEmailAndPassword(auth, email, password)
+        //     .then((userCredential) => {
+        //         // Signed in 
+        //         const user = userCredential.user;
+        //         // ...
+        //     })
+        // Get Firebase Auth instance
+        // var auth = firebase.auth();
+
+        // let submitBtn = document.getElementById('submit-btn')
+        // submitBtn.addEventListener('click', () => {
+        //     register()
+        // })
+        //     console.log("🚀 ~ file: index.html:93 ~ submitBtn.addEventListener ~ register()", register())
+
+        //function register
+        function signUp() {
+            var firstName = document.getElementById('first-name').value
+            var lastName = document.getElementById('last-name').value
+            var email = document.getElementById('email').value
+            var password = document.getElementById('password').value
+            var gender = document.getElementById('gender').value
+
+            if (validateEmail(email) == false || validPassword(password) == false) {
+                alert('plz input valid email and password')
+            }
+
+            auth.createUserWithEmailAndPassword(email, password)
+                .then(function () {
+                    var user = auth.currentUser
+
+                    var database_ref = dataBase.ref()
+
+                    var userData = {
+                        firstName: firstName,
+                        lastName: lastName,
+                        email: email,
+                        password: password,
+                        gender: gender
+                        // lastLogin : Date.now()
+                    }
+
+                    database_ref.child('users/' + user.uid).set(userData)
+
+                    alert('User created!!')
+                })
+                .catch(function (error) {
+                    var errorCode = error.Code
+                    var errorMessage = error.message
+
+                    alert(errorMessage)
+                })
+        }
+
+        // var submitBtn = document.getElementById('submit-btn')
+        // submitBtn.addEventListener('click', () => {
+        //     register()
+        // })
+
+        function validateEmail(email) {
+            let expression = /^[^@]+@\w+(\.\w+)+\w$/
+            if (expression.test(email) == true) {
+                return true
+            } else {
+                return false
+            }
+        }
+
+        function validPassword(password) {
+            if (password < 8) {
+                return false
+            } else {
+                return true
+            }
+        }
+
+        // var submitBtn = document.getElementById('submit-btn')
+        // submitBtn.addEventListener('click', () => {
+        //     register()
+        // })
+    </script> -->
+</body>
+
+</html>
