@@ -17,7 +17,7 @@ signUpBtn.addEventListener('click', () => {
 
 backBtn.addEventListener('click', () => {
     signUpContainer.style.display = 'none'
-    logIn.style.opacity = '0.7'
+    logInContainer.style.opacity = '0.7'
 })
 
 function somethiing() {
